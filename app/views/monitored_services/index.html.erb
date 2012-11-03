@@ -1,5 +1,5 @@
 <ul>
   <% @monitored_services.each do |service| %>
-    <li><%= service.name %></li>
+    <li id="service_<%= service.id %>"><%= service.name %> <%= service.status %></li>
   <% end %>
 </ul>
