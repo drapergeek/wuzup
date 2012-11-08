@@ -22,11 +22,7 @@ class ServiceChecker
   def check_site_status
     begin
       response = HTTParty.get(@url)
-      if response.code == 200
-        true
-      else
-        false
-      end
+      response.code == 200
     rescue SocketError
       false
     end
