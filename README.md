@@ -1,4 +1,4 @@
-# wuzup [![Build Status](https://secure.travis-ci.org/drapergeek/wuzup.png)](http://travis-ci.org/drapergeek/wuzup) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/drapergeek/wuzup)
+# wuzup [![Build Status](https://secure.travis-ci.org/drapergeek/wuzup.png?branch=master)](http://travis-ci.org/drapergeek/wuzup) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/drapergeek/wuzup)
 Project setup
 -------------
 
