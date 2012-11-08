@@ -1,4 +1,4 @@
-require 'spec_helper' 
+require 'spec_helper'
 feature 'monitored services' do
   scenario 'list all monitored services' do
     create_monitored_services

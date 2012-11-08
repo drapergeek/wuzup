@@ -5,6 +5,8 @@ class MonitoredService < ActiveRecord::Base
   GOOD = 'good'
   UNKNOWN = 'unknown'
 
+  validates :name, :url, presence: true
+
   attr_accessible :name
 
   has_many :service_checks
@@ -21,6 +23,10 @@ class MonitoredService < ActiveRecord::Base
     else
       UNKNOWN
     end
+  end
+
+  def create_service_check!(service_status)
+    service_checks.create!(up: service_status)
   end
 
   def up_check_count

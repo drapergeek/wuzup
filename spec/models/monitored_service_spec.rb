@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe MonitoredService do
   it { should have_many(:service_checks) }
+  it { should validate_presence_of(:url) }
+  it { should validate_presence_of(:name) }
 
   describe "#status" do
     let!(:service) { build_stubbed(:monitored_service) }
@@ -78,6 +80,16 @@ describe MonitoredService do
       create(:down_check, monitored_service: service)
 
       service.down_check_count.should == 2
+    end
+  end
+
+  describe "#create_service_check" do
+    it "creates a service check for itself" do
+      service = create(:monitored_service)
+      service.service_checks.count.should be 0
+      service.create_service_check!(true)
+      service.service_checks.count.should be 1
+      service.service_checks.last.up.should be true
     end
   end
 end

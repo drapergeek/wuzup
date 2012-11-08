@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :monitored_service do
     name "Main Website"
+    url "https://www.example.com"
     factory :good_service do
       after(:create) do |service|
         service.service_checks << create(:up_check)

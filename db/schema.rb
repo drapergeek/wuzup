@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103015845) do
+ActiveRecord::Schema.define(:version => 20121108000301) do
 
   create_table "monitored_services", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "url",        :null => false
   end
 
   create_table "service_checks", :force => true do |t|
