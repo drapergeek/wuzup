@@ -1,8 +1,11 @@
 language: ruby
 rvm:
   - "1.9.3"
+env:
+  global:
+    - secure: "ekQmnMbJxEMI40z0yyS6QtVWWwpBvhW7MNe8eri62Yv5oYgALVyFSFNTmM1D\n7VZYPD+xNRWt3v1DgdTwnnhm/5f8TegHOX0T0OsOtN5M6o93Nac7RZzetY/Z\nJ3oJEbROkllssftRm5WpjXgHSBJVNblGPEaJlMbFPMSZp3g8PPA="
 before_script:
   - psql -c 'create database wuzup_test;' -U postgres
   - bundle exec rake db:migrate db:test:prepare
 notifications:
-  - secure: "lU0+zijeYNF1NA+qbnquMXIwsq7axSJAta8jwt7PwfphEDgchcueis8MIPT5\nROBrw81yKfjTmLm+vnWZLKCAssjZrTAbTEiccgkdVsZ0M7hzQ03/iDK2Tgqi\n8uKPbNSClr9QspJnz1TrJWZK6pRhfa9bF7NLEF/nkt6AQ1woBZM="
+  campfire: $CAMPFIRE_NOTIFY_CONFIG
