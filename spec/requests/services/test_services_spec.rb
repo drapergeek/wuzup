@@ -10,11 +10,11 @@ feature 'checking services' do
   end
 
   def create_monitored_service
-    @service = create(:monitored_service, name: "google",  url: "http://www.google.com")
+    create(:monitored_service, name: "google", url: "http://www.google.com")
   end
 
   def verify_monitored_service_checked
     page.should have_content "Site checks ran"
-    page.should have_content "#{@service.name} good"
+    page.should have_content "google good"
   end
 end
