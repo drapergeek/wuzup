@@ -3,9 +3,9 @@ rvm:
   - "1.9.3"
 env:
   global:
-    - secure: "ekQmnMbJxEMI40z0yyS6QtVWWwpBvhW7MNe8eri62Yv5oYgALVyFSFNTmM1D\n7VZYPD+xNRWt3v1DgdTwnnhm/5f8TegHOX0T0OsOtN5M6o93Nac7RZzetY/Z\nJ3oJEbROkllssftRm5WpjXgHSBJVNblGPEaJlMbFPMSZp3g8PPA="
+    - secure: "d1JZgIy3QZrLqvbWgA1cbxbJiUyOkijKYAVnMdcBO9Pi91LHZ3vfamogjSua\nHuteC3rsKW1DbNAzYDcgqDdVVRDWtdeWlGQ7IcA+hmqmsBVcoZeMkbf97kXl\nCQrmfvffqcJnRuF5BSCUx0SN6X8dRot5SlLizjWl4uoMqoZ2dXg="
 before_script:
   - psql -c 'create database wuzup_test;' -U postgres
   - bundle exec rake db:migrate db:test:prepare
 notifications:
-  campfire: $CAMPFIRE_NOTIFY_CONFIG
+  campfire: drapergeek:$CAMPFIRE_API_KEY@449882
