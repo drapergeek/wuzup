@@ -1,0 +1,7 @@
+<%= simple_form_for(@monitored_service,
+                    url: admin_monitored_services_path(@monitored_service),
+                    html: {class: "form-horizontal"}) do |form| %>
+    <%= form.input :name %>
+    <%= form.input :url %>
+    <%= form.submit "Add Service" %>
+<% end %>

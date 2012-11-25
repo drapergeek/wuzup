@@ -1,4 +1,5 @@
 class MonitoredService < ActiveRecord::Base
+  include ActiveModel::ForbiddenAttributesProtection
   SERVICE_CHECK_COUNT = 3
   WARNING = 'warning'
   FAILURE = 'failure'
@@ -6,9 +7,6 @@ class MonitoredService < ActiveRecord::Base
   UNKNOWN = 'unknown'
 
   validates :name, :url, presence: true
-
-  attr_accessible :name
-
   has_many :service_checks
 
   def status

@@ -5,6 +5,7 @@ Wuzup::Application.routes.draw do
   end
   namespace :admin do
     resource :manual_site_check, only: [:show]
+    resources :monitored_services, only: [:new, :create]
   end
 
 
