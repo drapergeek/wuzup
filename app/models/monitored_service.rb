@@ -6,7 +6,8 @@ class MonitoredService < ActiveRecord::Base
   GOOD = 'good'
   UNKNOWN = 'unknown'
 
-  validates :name, :url, presence: true
+  validates :name, presence: true
+  validates :url, format: (/^http(s)?:\/\//)
   has_many :service_checks
 
   def status

@@ -2,8 +2,22 @@ require 'spec_helper'
 
 describe MonitoredService do
   it { should have_many(:service_checks) }
-  it { should validate_presence_of(:url) }
   it { should validate_presence_of(:name) }
+
+  describe "require a url to start with http(s)" do
+    it "allows valid http and https://" do
+      should allow_value("http://www.google.com").for(:url)
+      should allow_value("https://www.google.com").for(:url)
+    end
+
+    it "disallows anything outside of http:// and https://" do
+      should_not allow_value("htt://www.google.com").for(:url)
+      should_not allow_value("httpss://www.google.com").for(:url)
+      should_not allow_value("httpswww.google.com").for(:url)
+      should_not allow_value("ftp://google.com").for(:url)
+      should_not allow_value("").for(:url)
+    end
+  end
 
   describe "#status" do
     let!(:service) { build_stubbed(:monitored_service) }
