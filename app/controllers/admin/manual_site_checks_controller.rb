@@ -5,6 +5,7 @@ class Admin::ManualSiteChecksController < ApplicationController
         ServiceChecker.new(service).execute
       end
     end
+
     flash[:notice] = 'Site checks ran'
     redirect_to root_path
   end

@@ -1,7 +1,5 @@
 require 'spec_helper'
-# as an adminstrator
-# when I visit the manual site check page
-# I should see that the sites have been checked
+
 feature 'checking services' do
   scenario 'manually update services' do
     create_monitored_service
