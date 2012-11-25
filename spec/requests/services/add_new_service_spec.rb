@@ -8,6 +8,21 @@ feature 'Add services' do
     verify_new_service_shows_on_homepage
   end
 
+  scenario 'Admin creates invalid service' do
+    sign_in_as_admin
+    create_invalid_service
+    verify_service_was_not_created
+  end
+
+  def verify_service_was_not_created
+    page.should have_content 'Could not add service, please check for errors.'
+  end
+
+  def create_invalid_service
+    click_link 'Add Service'
+    click_button 'Add Service'
+  end
+
   def add_new_service
     click_link 'Add Service'
     fill_in 'Name', with: 'Google'
